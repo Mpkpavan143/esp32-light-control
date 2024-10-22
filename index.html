@@ -11,7 +11,7 @@
     <script>
         function sendRequest(action) {
             // Replace with your ESP32's public IP address and port
-            const esp32Url = `http://YOUR_ESP32_PUBLIC_IP/${action}`;
+            const esp32Url = `http://192.168.7.69${action}`;
             fetch(esp32Url)
                 .then(response => response.text())
                 .then(data => {
