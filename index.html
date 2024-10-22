@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Light Control</title>
+</head>
+<body>
+    <h1>Control Light</h1>
+    <button onclick="sendRequest('on')">Turn ON</button>
+    <button onclick="sendRequest('off')">Turn OFF</button>
+
+    <script>
+        function sendRequest(action) {
+            // Replace with your ESP32's public IP address and port
+            const esp32Url = `http://YOUR_ESP32_PUBLIC_IP/${action}`;
+            fetch(esp32Url)
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    alert(`Light turned ${action.toUpperCase()}`);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Failed to send request');
+                });
+        }
+    </script>
+</body>
+</html>
